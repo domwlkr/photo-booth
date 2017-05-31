@@ -12,10 +12,9 @@ function generateRandomString($length = 10) {
 
 $filename = generateRandomString();
 
-$output = shell_exec('/opt/local/bin/gphoto2 --capture-image-and-download --filename=' . $filename . '.jpg');
+$output = shell_exec('/opt/local/bin/gphoto2 --capture-image-and-download --filename=' . $filename . '.jpg --folder any');
 
 $path = "/Users/dom/Documents/sites/dom/camera-project/dist/camera-images"; 
-
 $latest_ctime = 0;
 $latest_filename = '';    
 
@@ -30,6 +29,6 @@ while (false !== ($entry = $d->read())) {
     }
 }
 
-echo $latest_filename;
+echo '<img src="camera-images/' . $latest_filename . '">';
 
 ?>

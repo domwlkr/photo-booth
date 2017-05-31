@@ -1,0 +1,9 @@
+.loader {
+    opacity: 0;
+    transition: opacity .25s ease;
+    @include centered();
+
+    &.loading {
+        opacity: 1;
+    }
+}

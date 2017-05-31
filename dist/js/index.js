@@ -117,10 +117,18 @@
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
 	var $link = $('#take-pic');
+	var $loader = $('.loader');
+	var $viewer = $('.viewer');
 	
 	$link.on('click', function () {
+	    console.log('click');
+	
+	    $link.addClass('hidden');
+	    $loader.addClass('loading');
+	
 	    $.get('camera-images/take-photo.php', function (data) {
-	        console.log(data);
+	        $loader.removeClass('loading');
+	        $viewer.html(data).addClass('loaded');
 	    });
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))

@@ -16,4 +16,4 @@ node_modules/
 node_modules
 
 dist/camera-images
-dist/camera-images/
+dist/camera-images/*.jpg

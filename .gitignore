@@ -15,4 +15,5 @@ error.log
 node_modules/
 node_modules
 
-camera-images
+dist/camera-images
+dist/camera-images/

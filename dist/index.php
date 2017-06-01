@@ -15,6 +15,8 @@
         </div>
 
         <div class="viewer">
+            <div class="viewer__image"></div>
+            <div class="viewer__controls"></div>
         </div>
 
         <script src="./js/index.js"></script>

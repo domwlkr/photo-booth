@@ -128,7 +128,7 @@
 	
 	    $.get('camera-images/take-photo.php', function (data) {
 	        $loader.removeClass('loading');
-	        $viewer.html(data).addClass('loaded');
+	        $viewer.find('.viewer__image').html(data).parent().addClass('loaded');
 	    });
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))

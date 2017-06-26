@@ -1,6 +1,6 @@
 # Photo booth app
 
-A simple photo booth app written in php to take pics and uplooad them to Facebook.
+A simple photo booth app written in php to take pics and upload them to Facebook.
 
 ## Setting up
 ```bash

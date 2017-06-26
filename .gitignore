@@ -16,7 +16,6 @@ node_modules/
 node_modules
 
 dist/vendor
-dist/camera-images
 dist/camera-images/*.jpg
 
 dist/login.php

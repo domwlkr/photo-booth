@@ -1,3 +1,22 @@
+<?php
+    require_once 'vendor/autoload.php';
+
+    if (!session_id()) {
+        session_start();
+    }
+
+    $fb = new Facebook\Facebook([
+        'app_id' => '1867343953590329',
+        'app_secret' => '936d210413da782b7fa5f89161ccdfd9',
+        'default_graph_version' => 'v2.9'
+    ]);
+
+    $helper = $fb->getRedirectLoginHelper();
+
+    $permissions = ['email']; // Optional permissions
+    $loginUrl = $helper->getLoginUrl('http://photo-booth.dev:9090/', $permissions);
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,21 +28,6 @@
     <link rel="stylesheet" href="./css/style.css"/>
 </head>
     <body>
-        <?php
-            require_once 'vendor/autoload.php';
-
-            $fb = new Facebook\Facebook([
-              'app_id' => '1867343953590329',
-              'app_secret' => '936d210413da782b7fa5f89161ccdfd9',
-              'default_graph_version' => 'v2.9',
-            ]);
-
-            $helper = $fb->getRedirectLoginHelper();
-
-            $permissions = ['email']; // Optional permissions
-            $loginUrl = $helper->getLoginUrl('http://photo-booth.dev:9090/', $permissions);
-
-            echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
-        ?>
+        <?php echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>'; ?>
     </body>
 </html>

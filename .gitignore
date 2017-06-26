@@ -19,3 +19,4 @@ dist/vendor
 dist/camera-images/*.jpg
 
 dist/login.php
+dist/index.php

@@ -21,7 +21,7 @@
             $helper = $fb->getRedirectLoginHelper();
 
             $permissions = ['email']; // Optional permissions
-            $loginUrl = $helper->getLoginUrl('http://photo-booth.dev:9090/', $permissions);
+            $loginUrl = $helper->getLoginUrl('http://photo-booth.dev:9090/fb-callback.php', $permissions);
 
             echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
         ?>

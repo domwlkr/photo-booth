@@ -6,8 +6,8 @@
     }
 
     $fb = new Facebook\Facebook([
-        'app_id' => '1867343953590329',
-        'app_secret' => '936d210413da782b7fa5f89161ccdfd9',
+        'app_id' => '{app-id}',
+        'app_secret' => '{app-secret}',
         'default_graph_version' => 'v2.9'
     ]);
 

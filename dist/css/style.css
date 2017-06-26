@@ -518,4 +518,21 @@ html {
     height: 100%;
     display: block; }
 
+.canvas {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity .25s ease; }
+  .canvas.loaded {
+    opacity: 1; }
+
+.canvas-hidden {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: -1; }
+
 /*# sourceMappingURL=style.css.map*/

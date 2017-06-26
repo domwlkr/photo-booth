@@ -14,7 +14,7 @@ import * as cameraLink from './modules/camera-link.js';
 Lucia.init = () => {
     let router = {
         all: [
-            // modules to run on all pages
+        
         ],
         index: [
             // modules to run on "index"

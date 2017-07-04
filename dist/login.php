@@ -13,7 +13,7 @@
 
     $helper = $fb->getRedirectLoginHelper();
 
-    $permissions = ['email']; // Optional permissions
+    $permissions = ['publish_actions']; // Optional permissions
     $loginUrl = $helper->getLoginUrl('http://photo-booth.dev:9090/', $permissions);
 ?>
 
@@ -28,6 +28,6 @@
     <link rel="stylesheet" href="./css/style.css"/>
 </head>
     <body>
-        <?php echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>'; ?>
+        <?php echo '<a class="button button--facebook" href="' . $loginUrl . '">Log in with Facebook</a>'; ?>
     </body>
 </html>

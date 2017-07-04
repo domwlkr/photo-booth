@@ -114,16 +114,12 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var _canvas = __webpack_require__(7);
-	
-	var canvas = _interopRequireWildcard(_canvas);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
 	var $link = $('#take-pic');
-	var $continue = $('.continue');
+	var $restart = $('.restart');
+	var $upload = $('#facebook');
 	var $loader = $('.loader');
 	var $viewer = $('.viewer');
+	var $uploaded = $('.message');
 	
 	$link.on('click', function () {
 	    $link.addClass('hidden');
@@ -135,12 +131,30 @@
 	    });
 	});
 	
-	$continue.on('click', function () {
-	    console.log('caanvaas');
-	    canvas.init();
-	    $viewer.removeClass('loaded');
-	    $('.canvas').addClass('loaded');
+	$restart.on('click', function () {
+	    restartExperience();
 	});
+	
+	$upload.on('click', function () {
+	    uploadImage();
+	});
+	
+	var restartExperience = function restartExperience() {
+	    $viewer.removeClass('loaded');
+	    $uploaded.removeClass('success');
+	    $link.removeClass('hidden');
+	};
+	
+	var uploadImage = function uploadImage() {
+	    $loader.addClass('loading');
+	    $viewer.removeClass('loaded');
+	
+	    $.get('upload.php', function (data) {
+	        console.log('shrug', data);
+	        $loader.removeClass('loading');
+	        $uploaded.addClass('success');
+	    });
+	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }),
@@ -10401,63 +10415,6 @@
 	return jQuery;
 	} );
 
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.init = init;
-	function init() {
-	    initCanvas();
-	}
-	
-	var options = {
-	    width: 1600,
-	    height: 900
-	};
-	
-	var initCanvas = function initCanvas() {
-	    var img = $('#source').get(0);
-	    var $canvasbg = $('<div class="canvas" />');
-	    var canvas = $('<canvas class="greenscreen" />').get(0);
-	    $canvasbg.append(canvas);
-	    $('body').append($canvasbg);
-	
-	    greenScreen(img, canvas, $canvasbg);
-	};
-	
-	var greenScreen = function greenScreen(img, canvas, $container, bg) {
-	    console.log(img, canvas, $container);
-	
-	    var context = canvas.getContext('2d');
-	    canvas.width = options.width;
-	    canvas.height = options.height;
-	    $container.width(options.width);
-	    $container.height(options.height);
-	    context.drawImage(img, 0, 0);
-	
-	    var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-	    var data = imageData.data;
-	    var start = {
-	        red: data[0],
-	        green: data[1],
-	        blue: data[2]
-	    };
-	    var tolerance = 150;
-	
-	    for (var i = 0, n = data.length; i < n; i += 4) {
-	        var diff = Math.abs(data[i] - data[0]) + Math.abs(data[i + 1] - data[1]) + Math.abs(data[i + 2] - data[2]);
-	        data[i + 3] = diff * diff / tolerance;
-	    }
-	
-	    context.putImageData(imageData, 0, 0);
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ })
 /******/ ]);

@@ -1,0 +1,18 @@
+.button {
+    background-color: red;
+    padding: 10px 30px;
+    color: white;
+    border: 0;
+}
+
+.button--facebook {
+    background-color: #3b5998;
+    padding: 10px 30px;
+    color: white;
+    border: 0;
+    position: absolute;
+    left: 50%;   
+    top: 50%;
+    text-decoration: none;
+    transform: translate(-50%, -50%);
+}

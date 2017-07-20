@@ -22,3 +22,5 @@ dist/login.php
 dist/index.php
 dist/upload.php
 dist/fb-callback.php
+
+dist/vendor

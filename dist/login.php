@@ -13,7 +13,7 @@
 
     $helper = $fb->getRedirectLoginHelper();
 
-    $permissions = ['publish_actions']; // Optional permissions
+    $permissions = ['publish_actions', 'manage_pages', 'publish_pages']; // Optional permissions
     $loginUrl = $helper->getLoginUrl('http://photo-booth.dev:9090/', $permissions);
 ?>
 

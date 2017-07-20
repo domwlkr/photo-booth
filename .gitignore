@@ -20,3 +20,5 @@ dist/camera-images/*.jpg
 
 dist/login.php
 dist/index.php
+dist/upload.php
+dist/fb-callback.php

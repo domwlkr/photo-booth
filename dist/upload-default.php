@@ -10,7 +10,7 @@
     use Facebook\FacebookRequestException;
     use Facebook\FacebookSDKException;
 
-    $path = "/Users/dom/Documents/sites/dom/camera-project/dist/camera-images";
+    $path = PATH_TO_IMAGES;
     $latest_ctime = 0;
     $latest_filename = '';    
 
@@ -26,8 +26,8 @@
     }
 
     $fb = new Facebook\Facebook([
-        'app_id' => '1867343953590329',
-        'app_secret' => '936d210413da782b7fa5f89161ccdfd9',
+        'app_id' => APP_ID,
+        'app_secret' => APP_SECRET,
         'default_graph_version' => 'v2.9',
     ]);
 
@@ -40,7 +40,7 @@
 
     try {
         // Returns a `Facebook\FacebookResponse` object
-        $response = $fb->post('/ubercreative/photos', $data, $session);
+        $response = $fb->post(FACEBOOK_PAGE, $data, $session);
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
         echo 'Graph returned an error: ' . $e->getMessage();
         exit;

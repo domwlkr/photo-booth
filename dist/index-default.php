@@ -6,8 +6,8 @@
     }
 
     $fb = new Facebook\Facebook([
-        'app_id' => '{app-id}',
-        'app_secret' => '{app-secret}',
+        'app_id' => APP_ID,
+        'app_secret' => APP_SECRET,
         'default_graph_version' => 'v2.9'
     ]);
 
@@ -33,8 +33,7 @@
             echo "Error Reason: " . $helper->getErrorReason() . "\n";
             echo "Error Description: " . $helper->getErrorDescription() . "\n";
         } else {
-            header('HTTP/1.0 400 Bad Request');
-            echo 'Bad request';
+            header('Location: REDIRECT_URL');
         }
         exit;
     }
@@ -47,7 +46,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Uber Photo Booth</title>
+    <title>Photo Booth</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/style.css"/>
@@ -64,8 +63,16 @@
 
             </div>
             <div class="viewer__controls">
-                <button class="continue"></button>
+                <button id="facebook" class="button">Upload to Facebook</button>
+                <button class="button restart">Take another photo</button>
             </div>
+        </div>
+
+        <div class="message">
+            Image uploaded successfully!<br>
+            Visit D-Dizzle's FB page to check that shiz oooooot!<br><br>
+
+            <button class="button restart">Take another photo</button>
         </div>
 
         <script src="./js/index.js"></script>

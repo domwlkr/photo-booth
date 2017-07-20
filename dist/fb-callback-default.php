@@ -6,8 +6,8 @@
     }
 
     $fb = new Facebook\Facebook([
-        'app_id' => '1867343953590329',
-        'app_secret' => '936d210413da782b7fa5f89161ccdfd9',
+        'app_id' => APP_ID,
+        'app_secret' => APP_SECRET,
         'default_graph_version' => 'v2.9',
     ]);
 
@@ -57,5 +57,5 @@
 
     $_SESSION['fb_access_token'] = (string) $accessToken;
 
-    header('Location: http://photo-booth.dev:9090/');
+    header('Location: REDIRECT_URL');
 ?>
